@@ -3,7 +3,7 @@
 Three Slash TeX Design 
 
 Academic Report Form, written in TeX.
-Designed and Developed by Kyarunha, All Rights Reserved.
+Designed and Developed by Kyaryunha, All Rights Reserved.
 
 
 
