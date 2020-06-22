@@ -11,7 +11,7 @@ Three Slash TeX Design
 
 
 
-[English]
+### English
 
 A TeX document design like below. 
 
@@ -27,18 +27,19 @@ I hope you disclosing the source when you're using it.
 
 
 
-[Korean]
+### Korean
 
 아래와 같은 디자인의 TeX 코드입니다.
 
 PDF 파일은 [여기](https://github.com/kyaryunha/TeX-Design-Three-Slash/blob/master/ThreeSlashTeXDesign/main.pdf) 에서 볼 수 있습니다.
 
-본인이 대학교 과제 작성할 때 사용하는 템플릿으로 직접 디자인하였으며, 첨부된 예시로는 따라서 한양대학교 로고와 한양대학교 색깔이 들어가 있는데, 알아서 본인의 보고서에 맞게 변경하면 된다.
+본인이 대학교 과제 작성할 때 사용하는 템플릿으로 직접 디자인하였으며, 첨부된 예시로는 따라서 한양대학교 로고와 한양대학교 색깔이 들어가 있는데, 알아서 본인의 보고서에 맞게 변경하면 됩니다.
 
 출처를 명시해주고 사용해주시면 감사합니다.
 
 
 
+### Design Example 
 ----------------------------------
 
 ![0](./example/0.png)
