@@ -15,11 +15,11 @@ Three Slash TeX Design ( Design by Me )
 
 
 
-![0](.\example\0.png)
+![0](./example/0.png)
 
 
 
-![1](.\example\1.png)
+![1](./example/1.png)
 
 
 
@@ -31,3 +31,4 @@ Three Slash TeX Design ( Design by Me )
 
 - 용지 사이즈에 따라 디자인 수동으로 좌표 변경해야함
 - 페이지 넘김시 \nextpage로 직접 넘겨줘야함 ( newpage나 자동으로 넘어가면, 왼쪽의 사선 디자인이 같이 안따라온다. )
+- 로고 이미지 사이즈 바뀌어도 디자인 수동으로 변경해야함... ( 시험 끝나고 방학 중 언젠가 고칠 예정 ) 
