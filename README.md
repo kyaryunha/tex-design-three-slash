@@ -1,58 +1,50 @@
 # Three Slash 
+
 Three Slash TeX Design 
 
-
-
-### Usage Example
-
-- Assignment 
-- Homework
-- ...
+Academic Report Form, written in TeX.
+Designed and Developed by Kyarunha, All Rights Reserved.
 
 
 
-### English
+[English]
 
-A TeX document design like below. 
+A TeX document design (rendered below). 
 
-You can find [PDF File](https://github.com/kyaryunha/TeX-Design-Three-Slash/blob/master/ThreeSlashTeXDesign/main.pdf) here. 
+You can find the [PDF here](https://github.com/kyaryunha/TeX-Design-Three-Slash/blob/master/ThreeSlashTeXDesign/main.pdf).
+This is a template designed by me, used when I'm writing an essay in my university.
+For this reason, its main theme is based on the color of my university. Feel free to change them if you need.
+If you like this project, Please cite the source as:
 
-It is a template designed by myself that is using when I'm writing an assignment at university. 
-
-So, the attached example contains the logo and color of Hanyang University. 
-
-I recommend changing those things in your condition. 
-
-I hope you disclosing the source when you're using it.
+(README.md English translation by kipa00)
 
 
 
-### Korean
+[Korean]
 
 아래와 같은 디자인의 TeX 코드입니다.
 
 PDF 파일은 [여기](https://github.com/kyaryunha/TeX-Design-Three-Slash/blob/master/ThreeSlashTeXDesign/main.pdf) 에서 볼 수 있습니다.
 
-본인이 대학교 과제 작성할 때 사용하는 템플릿으로 직접 디자인하였으며, 첨부된 예시로는 따라서 한양대학교 로고와 한양대학교 색깔이 들어가 있는데, 알아서 본인의 보고서에 맞게 변경하면 됩니다.
+본인이 대학교 과제 작성할 때 사용하는 템플릿으로 직접 디자인하였으며, 첨부된 예시로는 따라서 한양대학교 로고와 한양대학교 색깔이 들어가 있는데, 알아서 본인의 보고서에 맞게 변경하면 된다.
 
 출처를 명시해주고 사용해주시면 감사합니다.
 
 
 
-### Design Example 
-----------------------------------
+------
 
 ![0](./example/0.png)
 
--------------------------------------
+------
 
 ![1](./example/1.png)
 
-------------------------------------------------
+------
 
 ![2](./example/2.png)
 
-------------------------------------------
+------
 
 
 
