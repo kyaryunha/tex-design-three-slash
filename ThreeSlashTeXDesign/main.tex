@@ -1,0 +1,126 @@
+% 보고서 쓸 때 유용한 라이브러리들 
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{kotex}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{minted}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage[english]{babel}
+
+% 색깔 설정들 
+\definecolor{one}{RGB}{0 68 131}
+\definecolor{two}{RGB}{150 150 150}
+\definecolor{three}{RGB}{0 0 0}
+\definecolor{graytwo}{RGB}{60 60 60}
+\definecolor{graythree}{RGB}{80 80 80}
+
+% 글꼴 설정 
+\setmainfont[Color=graytwo]{Roboto-Light}
+\setmainhangulfont[Color=graythree]{Noto Sans CJK KR}
+
+% 용지 모양 설정
+\geometry{a4paper, left=25mm, right=15mm, top=20mm, bottom=0mm}
+ 
+%  Title 설정 
+\title{\includegraphics[width=4cm]{img/hanyang.png}
+\\~\\ Assignment Example \#1
+}
+\date{May 16, 2020}
+\author{한양대학교 컴퓨터소프트웨어학부\\2019024439 신 현}
+
+% 코드 입력 단순화 ( cpp, python 등 다양한 언어 바꾸면 된다 )
+\newcommand{\Code}[1]{
+	\inputminted[]{cpp}{#1}
+}
+
+% nextpage... 페이지 넘김 직접해줘야 
+% 이 문서의 핵심(?)인 왼쪽 디자인이 안깨진다 
+% 언젠가 자동화해서 다시 푸시할게요... 
+\newcommand{\nextpage}[0]{
+    \newpage
+    \begin{tikzpicture}[remember picture,overlay]
+        \begin{scope}[every shade/.append style={yslant=0.5},yslant=0.5]
+            \shade[top color=one,bottom color=one] (-4,4) rectangle (-2,-6.45);
+            \shade[top color=two,bottom color=two] (-4,-6.45) rectangle (-2,-16.65);
+            \shade[top color=three,bottom color=three] (-4,-16.65) rectangle (-2,-26.5);
+        \end{scope}
+    \end{tikzpicture}
+}
+
+\begin{document}
+% 페이지 넘버링 설정 
+% \pagenumbering{gobble}
+\nextpage
+% 장평 설정 
+\setlength{\baselineskip}{15pt}
+% maketitle 
+{\let\newpage\relax\maketitle}
+
+% 적당히 예쁜 위치에 목차 그리고 ( 보고서 양에 따라 생략 )
+~\\~\\
+\setlength{\baselineskip}{22pt}
+\tableofcontents
+\setlength{\baselineskip}{15pt}
+
+% 페이지 다시 넘기고
+\nextpage
+% 보고서 내용 적으면 됨 
+
+% Chapter와 Section의 이름을 의도적으로 변경하고, 이를 목차에 추가하거나 삭제하고 싶으면 아래와 같이 하자. ( 학교 보고서에는 Chapter와 Section 형식만을 써야하는 경우는 적으니.. ) 
+\addcontentsline{toc}{section}{Part 1.~~C언어 출력하기}
+\section*{Part 1. C언어 출력하기 }
+
+\begin{tcolorbox}[title={Part 1. C언어 출력하기},
+fonttitle={\sffamily\bfseries}]
+	~\\
+	Q1: Hello World를 출력해보자  \\
+		
+	Q2: I am Shin Hyun을 출력해보자
+	
+\end{tcolorbox}
+
+
+\addcontentsline{toc}{subsection}{1.1~~~Hello World !}
+\subsection*{1.1~~~Hello World를 출력해보자 }
+\subsubsection*{코드}
+\begin{tcolorbox}[colback=white!5!white, colframe=white!75!black]
+    \Code{source/helloworld.cpp}
+\end{tcolorbox}
+
+
+\addcontentsline{toc}{subsection}{1.2~~~My name is Shin Hyun !!}
+\subsection*{1.2~~~My name is Shin Hyun을 출력해보자 }
+\subsubsection*{코드}
+\begin{tcolorbox}[colback=white!5!white, colframe=white!75!black]
+    \Code{source/shinhyun.cpp}
+\end{tcolorbox}
+
+\nextpage
+\addcontentsline{toc}{section}{Part 2.~~C언어 입력받기}
+\section*{Part 2. C언어 입력받기 }
+
+\addcontentsline{toc}{subsection}{2.1~~~정수 입력 받기}
+\subsection*{2.1~~~정수 입력 받기 }
+내용은 생략하겠다. 
+
+\addcontentsline{toc}{subsection}{2.2~~~문자 입력 받기}
+\subsection*{2.2~~~문자 입력 받기 }
+내용은 생략하겠다. 
+
+\nextpage
+\addcontentsline{toc}{section}{부록}
+\subsection*{부록}
+부록은 다음과 같다.
+\begin{tcolorbox}[colback=white!5!white, colframe=white!75!black]
+    \Code{source/Appendix.cpp}
+\end{tcolorbox}
+
+
+
+\end{document}
