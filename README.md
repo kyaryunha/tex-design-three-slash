@@ -6,7 +6,6 @@ Academic Report Form, written in TeX.
 Designed and Developed by Kyaryunha, All Rights Reserved.
 
 
-
 [English]
 
 A TeX document design (rendered below). 
@@ -18,7 +17,7 @@ If you like this project, Please cite the source as:
 
 (README.md English translation by kipa00)
 
-
+You can use this at overleaf, change settings PDFTeX(default) -> XeTeX. 
 
 [Korean]
 
@@ -29,6 +28,8 @@ PDF 파일은 [여기](https://github.com/kyaryunha/TeX-Design-Three-Slash/blob/
 본인이 대학교 과제 작성할 때 사용하는 템플릿으로 직접 디자인하였으며, 첨부된 예시로는 따라서 한양대학교 로고와 한양대학교 색깔이 들어가 있는데, 알아서 본인의 보고서에 맞게 변경하면 된다.
 
 출처를 명시해주고 사용해주시면 감사합니다.
+
+오버리프에서 사용할 수 있는데, 세팅을 PDFTeX에서 XeTeX로 변경해야 정상적으로 컴파일 됩니다. 
 
 
 
