@@ -15,8 +15,6 @@ This is a template designed by me, used when I'm writing an essay in my universi
 For this reason, its main theme is based on the color of my university. Feel free to change them if you need.
 If you like this project, Please cite the source as:
 
-(README.md English translation by kipa00)
-
 You can use this at overleaf, change settings PDFTeX(default) -> XeTeX. 
 
 [Korean]
@@ -30,7 +28,6 @@ PDF 파일은 [여기](https://github.com/kyaryunha/TeX-Design-Three-Slash/blob/
 출처를 명시해주고 사용해주시면 감사합니다.
 
 오버리프에서 사용할 수 있는데, 세팅을 PDFTeX에서 XeTeX로 변경해야 정상적으로 컴파일 됩니다. 
-
 
 
 ------
