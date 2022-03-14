@@ -36,15 +36,15 @@ src에 2가지 형태의 example 이 있습니다.
 
 ------
 
-![0](./img/0.png)
+![0](./img-for-readme/0.png)
 
 ------
 
-![1](./img/1.png)
+![1](./img-for-readme/1.png)
 
 ------
 
-![2](./img/2.png)
+![2](./img-for-readme/2.png)
 
 ------
 
