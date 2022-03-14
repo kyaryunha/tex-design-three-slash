@@ -20,6 +20,10 @@
 \definecolor{graytwo}{RGB}{60 60 60}
 \definecolor{graythree}{RGB}{80 80 80}
 
+
+% TODO 입력하기 ("TODO" text with red color)
+\newcommand{\TODO}[0]{{\color{red}\textbf{TODO}}}
+
 % 글꼴 설정 
 \setmainfont[Color=graytwo]{Roboto-Light}
 \setmainhangulfont[Color=graythree]{Noto Sans CJK KR}
@@ -28,7 +32,7 @@
 \geometry{a4paper, left=25mm, right=15mm, top=20mm, bottom=0mm}
  
 %  Title 설정 
-\title{\includegraphics[width=4cm]{img/hanyang.png}
+\title{\includegraphics[height=4cm]{img/hanyang.png}
 \\~\\ Assignment Example \#1
 }
 \date{May 16, 2020}
@@ -52,6 +56,14 @@
         \end{scope}
     \end{tikzpicture}
 }
+
+% 첫 페이지에 쓰면 아래에 출처 표시해줌
+\newcommand{\threeslash}{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[draw=none] at (14,-16) {github.com/kyaryunha/teX-design-three-slash};
+    \end{tikzpicture}
+}
+
 
 \begin{document}
 % 페이지 넘버링 설정 

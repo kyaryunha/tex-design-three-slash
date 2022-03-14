@@ -1,0 +1,445 @@
+% 보고서 쓸 때 유용한 라이브러리들 
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{kotex}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{minted}
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{booktabs} % for tabular 
+\usepackage[fleqn]{amsmath} % for gather
+\usepackage{amssymb} % ams symb
+
+
+% 색깔 설정들 
+\definecolor{one}{RGB}{0 68 131}
+\definecolor{two}{RGB}{150 150 150}
+\definecolor{three}{RGB}{0 0 0}
+\definecolor{graytwo}{RGB}{60 60 60}
+\definecolor{graythree}{RGB}{80 80 80}
+
+% TODO 
+\newcommand{\TODO}[0]{{\color{red}\textbf{TODO}}}
+
+% 글꼴 설정 
+\setmainfont[Color=graytwo]{Roboto-Light}
+\setmainhangulfont[Color=graythree]{Noto Sans CJK KR}
+
+% 용지 모양 설정
+\geometry{a4paper, left=25mm, right=15mm, top=20mm, bottom=0mm}
+ 
+%  Title 설정 
+\title{\includegraphics[width=4cm]{img/hanyang.png}
+\\~\\ Artificial Intelligence HW \#1
+}
+\date{\today}
+\author{한양대학교 컴퓨터소프트웨어학부\\2019024439 신 현}
+
+% 코드 입력 단순화 ( cpp, python 등 다양한 언어 바꾸면 된다 )
+\newcommand{\Code}[1]{
+	\inputminted[]{python}{#1}
+}
+
+\newcommand{\CodeS}[1]{
+	\inputminted[]{bash}{#1}
+}
+\newcommand{\design}[0]{
+    \begin{tikzpicture}[remember picture,overlay]
+        \begin{scope}[every shade/.append style={yslant=0.5},yslant=0.5]
+            \shade[top color=one,bottom color=one] (-4,4) rectangle (-2,-6.45);
+            \shade[top color=two,bottom color=two] (-4,-6.45) rectangle (-2,-16.65);
+            \shade[top color=three,bottom color=three] (-4,-16.65) rectangle (-2,-26.5);
+        \end{scope}
+    \end{tikzpicture}
+}
+
+\newcommand{\nextpage}[0]{
+    \newpage
+    \design
+}
+\newcommand{\threeslash}{
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[draw=none] at (14,-16) {github.com/kyaryunha/TeX-Design-Three-Slash};
+    \end{tikzpicture}
+}
+
+\begin{document}
+\design
+% 페이지 넘버링 설정 
+% \pagenumbering{gobble} 
+\pagestyle{fancy}
+\fancyhf{}% Clear all headers/footers
+\lhead{} 
+\chead{\color{one} $Artificial~Intelligence$} 
+\rhead{\color{one} $Page~\thepage$}
+\renewcommand{\headrulewidth}{0pt}
+
+% 장평 설정 
+\setlength{\baselineskip}{15pt}
+% maketitle 
+{\let\newpage\relax\maketitle}
+% 출처 표기 - 개발자라 생략함 
+% \threeslash
+% sectoin style
+\renewcommand\thesubsection{~~\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{~~~~(\alph{subsubsection})}
+% TOC Depth
+\setcounter{tocdepth}{1}
+% 적당히 예쁜 위치에 목차 그리고 ( 보고서 양에 따라 생략 )
+~\\~\\
+\setlength{\baselineskip}{22pt}
+\tableofcontents
+\setlength{\baselineskip}{15pt}
+
+\nextpage
+% Chapter와 Section의 이름을 의도적으로 변경하고, 이를 목차에 추가하거나 삭제하고 싶으면 아래와 같이 하자. ( 학교 보고서에는 Chapter와 Section 형식만을 써야하는 경우는 적으니.. ) 
+\section{Basics: Linear Algebra, Probability, and Information Theory}
+
+% \begin{tcolorbox}[title={Part 1.  CLI 입력받기},
+% fonttitle={\sffamily\bfseries}]
+% 	~\\
+% 	1. Use Argparse \\ 
+% 	2. add\_argument
+	
+% \end{tcolorbox}
+
+\subsection{Linear Algebra}
+\subsubsection{} % a
+\begin{itemize}
+    \item 행렬에 역행렬이 존재한다면, 그것은 유일함.
+    \item $A$와 $A^{-1}$의 차원은 같다.
+    \item $A^{-1}$가 존재한다면, $A^{-1}$의 역행렬은 $A$ 이다.
+\end{itemize}
+
+\subsubsection{} % b 
+\begin{gather}
+    열의~직교~벡터 ~v_i \cdot v_j = 1~or~0~이다.~(i=j 면~1,~ i \neq j 면~0)
+\end{gather}
+\begin{gather*}
+    v_i = 열(혹은~행)~하나를~의미 \\ 
+    A = \begin{pmatrix}
+    - & v_1 & -\\
+    - & v_2 & -\\
+    - & \vdots & -\\
+    - & v_n & -
+    \end{pmatrix} \\ 
+    A^{T} =\begin{pmatrix}
+    \mid  & \mid  & \mid  & \mid  \\
+    v_1 & v_2 &... &v_n \\
+    \mid  & \mid  & \mid  & \mid 
+    \end{pmatrix} \\
+    B = A^{T}A = \begin{pmatrix}
+    - & v_1 & -\\
+    - & v_2 & -\\
+    - & \vdots & -\\
+    - & v_n & -
+    \end{pmatrix}
+    \begin{pmatrix}
+    \mid  & \mid  & \mid  & \mid  \\
+    v_1 & v_2 &... &v_n \\
+    \mid  & \mid  & \mid  & \mid 
+    \end{pmatrix} \\ 
+    B_{ij} = v_i \cdot v_j \\
+    (1)~에~따라~~\therefore B = I
+\end{gather*}
+
+
+\subsection{Probability and Information Theory}
+\subsubsection{} % a
+~~~~~~$P(A, C | B) = P(A | B)P(C|B)$ 라는 사실에서, $P(A|B,C) = P(A|B)$ 를 유도한다.
+~~~~~~\begin{gather*}
+P(A, C | B) = P(A | B)P(C|B) \\
+\Leftrightarrow \frac{P(A, B, C)}{P(B)} = \frac{P(A, B)}{P(B)} \frac{P(B, C)}{P(B)} \\ 
+\Leftrightarrow \frac{P(A, B, C)}{P(B, C)} = \frac{P(A, B)}{P(B)} \\
+\Leftrightarrow  P(A|B,C) = P(A|B) \\
+\end{gather*} 
+
+\subsubsection{} % b 
+~~~~~~$E(X)=\phi$ 를 유도한다.
+~~~~~~\begin{gather*}
+P(X=1)=\phi 
+P(X=0)=1-\phi \\
+E(X) = 1 \cdot P(X=1) + 0 \cdot P(X=0) \\
+ = 1 \cdot \phi + 0  = \phi 
+\end{gather*} 
+
+\subsubsection{} % c
+\begin{itemize}
+    \item \TODO : I DON'T KNOW
+\end{itemize}
+
+
+
+\nextpage
+
+\section{Problem-Solving Agents and Search}
+~~~~~~~ 단어의 첫 알파벳이 unique 하므로, 각 정점은 알파벳 첫글자를 사용해 표기했습니다.
+\subsection{Uninformed Search Strategies}
+\subsubsection{A 에서 P 로 가는 BFS 경로 출력} % a
+% \includegraphics[width=10cm]{img/bfs.PNG}
+\begin{itemize}
+    \item 첫번째 단계에 \textbf{A}에서 갈 수 있는, Z, \textbf{S}, T 방문 
+    \item 두번째 단계에 Z, S, T에서 갈 수 있는, O, \textbf{F}, R, V, L 방문
+    \item 세 번째 단계에 O, F, R, V, L에서 갈 수 있는, \textbf{B}, P, C, M 방문 
+    \item 세 번째 단계에 목표지인 P 방문했으므로 종료
+\end{itemize}
+
+\subsubsection{N 에서 S로 가는 DFS 경로 출력} % b
+\begin{itemize}
+    \item \textbf{N} -> \textbf{I} -> \textbf{V} -> \textbf{U} -> \textbf{B} -> G -> (다시 B로 돌아와서) -> \textbf{P} -> \textbf{R} -> \textbf{S} -> \textbf{F}  
+\end{itemize}
+
+
+
+\subsection{Informed Search Strategies}
+\subsubsection{T에서 B로 가는 Greedy BFS 경로 출력} % a
+% Gready BFS 로 Timisoara 에서 Bucharest 로 가는 정확한 검색 궤적을 지정합니다.
+\begin{itemize}
+    \item \textbf{T}에서 A(366) 와 L(244)를 탐색한다. L이 244로 제일 작다.
+    \item \textbf{L}에서 M(241) 을 탐색한다. M이 241 로 제일 작다.
+    \item \textbf{M}에서 D(242) 를 탐색한다. D이 242로 제익 작다.
+    \item \textbf{D}에서 C(160) 를 탐색한다. C이 160로 제일 작다.
+    \item \textbf{C}에서 P(100)와 R(193)를 탐색한다. P가 100 으로 제일 작다.
+    \item \textbf{P}에서 B(0)와 R(193)를 탐색한다. R은 방문했던 곳이라 스킵한다. B가 0으로 제일 작다.
+    \item \textbf{B}를 방문한다.
+    \item 목표지인 B에 방문했으므로 종료 
+\end{itemize}
+\nextpage
+\subsubsection{Z에서 B로 가는 $A^{*}$ 경로 출력} % b
+% 초기 상태에서 노드 n까지의 경로 비용에 해당하는 추가 비용 함수 g(n)를 고려하여 휴리스틱 함수 h(n)에 추가하여 A * 검색을 사용하여 Zerind에서 Bucharest까지의 정확한 탐색 궤적을 지정합니다. .
+\begin{itemize}
+    \item 먼저 \textbf{Z}를 방문한다. \\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        Z & 0 & 374 & 374 \\ 
+        \bottomrule 
+        \end{tabular}
+    \item Z 에선 A와 O에 갈 수 있다. \\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        A & 75 & 366 & 441 \\
+        O & 71 & 380 & 451 \\
+        \bottomrule
+        \end{tabular}
+    \item A 가 현재 sum 이 441로 제일 작다. \textbf{A}를 방문하고, A에선 S와 T에 갈 수 있다.\\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        S & 215 & 253 & 468 \\
+        T & 193 & 329 & 522 \\
+        \bottomrule
+        \end{tabular}
+    \item O가 현재 sum 이 451로 제일 작다. \textbf{O}를 방문하고, O에선 S에 갈 수 있다. \\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        S & 222 & 253 & 475 \\ 
+        \bottomrule
+        \end{tabular} \\~\\
+        그렇지만 재탐색한 S는 기존에 나왔던 468보다 큰 값이 475라, 갱신되진 않는다. 
+    \item S 이 현재 sum이 468 로 제일 작다. \textbf{S}를 방문하고, S에선 F랑 R에 갈 수 있다. \\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        F & 314 & 176 & 490 \\ 
+        R & 295 & 193 & 488 \\ 
+        \bottomrule
+        \end{tabular} 
+    \item R이 현재 sum이 488로 제일 작다. \textbf{R}을 방문하고, R에선 C와 P 에 갈 수 있다. \\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        C & 441 & 160 & 601 \\
+        P & 392 & 100 & 492 \\
+        \bottomrule
+        \end{tabular}
+    \item F 이 현재 sum이 490 로 제일 작다. \textbf{F}를 방문하고, F에선 B에 갈 수 있다. \\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        B & 525 & 0 & 525 \\
+        \bottomrule
+        \end{tabular}
+    \item P이 현재 sum이 492로 제일 작다. \textbf{P}를 방문하고, P에선 B에 갈 수 있다.  \\~\\
+        \begin{tabular}{@{}cccc@{}}
+        \toprule
+        $Alphabet$ & $g(n)$ & $h(n)$ & $Sum(g+h)$\\ \midrule
+        B & 493 & 0 & 493 \\
+        \bottomrule
+        \end{tabular} \\~\\ 
+    \item B가 현재 sum이 493 로 제일 작다. \textbf{B}를 방문하고, 목표지 도달로 종료한다. 
+    \item \textbf{Z -> A -> O -> S -> R -> F -> P -> B}
+\end{itemize} 
+
+
+\nextpage
+\section{Knowledge-based Agents and Logic}
+
+\subsection{Propositional Logic}
+\subsubsection{} % a
+\begin{itemize}
+    \item 두 식이 동일하다는 것에 대한 표 
+\end{itemize}
+~~~~~~~~\begin{tabular}{@{}cccc@{}}
+\toprule
+$A$ & $B$ & $\neg(A \vee B)$ & $(\neg A \land \neg B) $\\ \midrule
+F & F & T          & T         \\
+F & T & F          & F         \\
+T & F & F          & F         \\
+T & T & F          & F         \\ \bottomrule
+\end{tabular}
+
+\subsubsection{} % b
+% https://www.math.fsu.edu/~pkirby/mad2104/SlideShow/s2_2.pdf
+\begin{itemize}
+    \item 두 식이 동일하다는 것에 대한 표 
+\end{itemize}
+~~~~~~~~\begin{tabular}{@{}cccc@{}}
+\toprule
+$A$ & $B$ & $(A \leftrightarrow B)$ & $(A \rightarrow B) \land (B \rightarrow A)$ \\ \midrule
+F & F & T       & T                  \\
+F & T & F       & F                  \\
+T & F & F       & F                  \\
+T & T & T       & T                  \\ \bottomrule
+\end{tabular}
+
+\subsection{Logical Inference}
+\subsubsection{Specify the difference between model checking and propositional theorem proving in
+logical inference. } % a
+\begin{itemize}
+    \item Propositional theorem  is finding a proof can be more efficient (compared to building a truth table or model checking) because the proof can ignore irrelevant propositions. % Knowledge and Logic (2) 16pg 
+\end{itemize}
+
+\subsubsection{Theorem Proving} % b
+~~~~~~\begin{gather*}
+R_2: B_{1, 1} \leftrightarrow (P_{1, 2} \vee P_{2, 1} ) \\
+R_4: \neg B_{1,1} \\
+R_2와, R_4 에~의해, \\
+~(P_{1,2} \vee P_{2, 1} ) = \neg P_{1, 2} \land \neg P_{2, 1} = \neg P_{2, 1} \\
+\end{gather*}
+
+\nextpage
+\subsubsection{Model Checking} % c
+~~~~~~\begin{itemize}
+    \item P, B, R 에 대한 Model Checking
+    \item $R_1$ 와 $R_4$ 에 의해 $P_{1, 1}$, $B_{1,1}$ 는 F 로 두고, 나머지 4개 변수에 대해 $2^4$ 가지를 해본다.
+\end{itemize}
+~~~~~~~~\begin{tabular}{@{}ccccccc|cccc|c@{}}
+\toprule
+$Num$ & $P_{1, 1}$ & $P_{1, 2}$ & $P_{2, 1}$ & $P_{2, 2}$ & $B_{1, 1}$ & $B_{2, 1}$ & $R_1$ & $R_2$ & $R_3$ & $R_4$ & $R_1 \land R_2 \land R_3 \land R_4$\\  
+\midrule
+ 1 & F & F & F & F & F & F & T & T & T & T & T \\
+ 2 & F & F & F & F & F & T & T & T & F & T & F \\
+ 3 & F & F & F & T & F & F & T & T & F & T & F \\
+ 4 & F & F & F & T & F & T & T & T & T & T & T \\
+ 5 & F & F & T & F & F & F & T & F & T & T & F \\
+ 6 & F & F & T & F & F & T & T & F & F & T & F \\
+ 7 & F & F & T & T & F & F & T & F & F & T & F \\
+ 8 & F & F & T & T & F & T & T & F & T & T & F \\
+ 9 & F & T & F & F & F & F & T & F & T & T & F \\
+10 & F & T & F & F & F & T & T & F & F & T & F \\
+11 & F & T & F & T & F & F & T & F & F & T & F \\
+12 & F & T & F & T & F & T & T & F & T & T & F \\
+13 & F & T & T & F & F & F & T & F & T & T & F \\
+14 & F & T & T & F & F & T & T & F & F & T & F \\
+15 & F & T & T & T & F & F & T & F & F & T & F \\
+16 & F & T & T & T & F & T & T & F & T & T & F \\
+\bottomrule
+\end{tabular} \\
+~~~~~~\begin{itemize}
+    \item $R_1 \land R_2 \land R_3 \land R_4 = True$ 일 때, $P_{2,1}$ 는 언제나 $False$ 이다.
+\end{itemize}
+
+
+\nextpage
+\section{Bayesian Network and Probabilistic Inference}
+
+\subsection{Exact Inference}
+\subsubsection{} % a
+\begin{itemize}
+    \item $Burglary$이 $true$일 확률과 $Earthquake$ 이 $true$ 일 확률 
+    \item $Alarm$ 이 $true$ 일때, $JohnCalls$ 이 $true$일 확률과 $MaryCalls$ 이 $true$ 일 확률 
+    \item $Alarm$ 이 $false$ 일때, $JohnCalls$ 이 $true$일 확률과 $MaryCalls$ 이 $true$ 일 확률 
+\end{itemize}
+
+
+\subsubsection{} % b
+% https://ocw.mit.edu/courses/health-sciences-and-technology/hst-950j-biomedical-computing-fall-2010/lectures-and-readings/MITHST_950JF10_lec14.pdf   7 page 
+~~~~~~  알람이 울리고, John과 Mary 모두 전화를 했을 때, 지진이 났을 확률은? \\
+
+John과 Mary 이 전화를 한 상황은 이미 일어난 일이므로, 고려하지 않아도 된다. 
+~~~~~~\begin{gather*}
+P1 = P(A=true|B=true, E=true)P(B=true)P(E=true) \\
+= 0.95 \times 0.001 \times 0.002 = 0.0000019\\
+P2 = P(A=true|B=true, E=false)P(B=true)P(E=false)\\
+= 0.94 \times 0.001 \times 0.998 = 0.00093812\\
+P(A=true) = 아래에~있는 4.1.(c)의~답 \\ \\
+\frac{P1+P2}{P(A=true)} = \frac{0.0000019 + 0.00093812}{0.002516442}
+= 0.3735512282...
+\end{gather*}
+
+\subsubsection{} % c
+~~~~~~알람이 울릴 확률은 B, E가 각각 true, false 일 때 확률 구해서 더한다.
+~~~~~~\begin{gather*}
+P(A=true) = P(A=true|B=true, E=true)P(B=true)P(E=true)\\
++ P(A=true|B=true, E=false)P(B=true)P(E=false)\\
++ P(A=true|B=false, E=true)P(B=false)P(E=true)\\
++ P(A=true|B=false, E=false)P(B=false)P(E=false)\\
+= 0.95 \times 0.001 \times 0.002 \\
++ 0.94 \times 0.001 \times 0.998 \\
++ 0.29 \times 0.999 \times 0.002 \\
++ 0.001 \times 0.999 \times 0.998 \\
+= 0.002516442 
+\end{gather*}
+
+\nextpage
+\subsubsection{} % d 
+~~~~~~ $Earthquake$가 $true$ 인지 $false$ 인지도 $Alarm$ 에 영향을 주니 함께 고려해 주어야 한다.
+~~~~~~\begin{gather*}
+P1 = P(A=true, B=true, M=true) \\
+= P(A=true, B=true, E=true, M=true) + P(A=true, B=true, E=false, M=true) \\
+= 0.95 \times 0.001 \times 0.002 \times 0.70 + 0.94 \times 0.001 \times 0.998 \times 0.70 \\
+= 0.000658014 \\
+P2 = P(A=false, B=true, M=true) \\ 
+= P(A=false, B=true, E=true, M=true) + P(A=false, B=true, E=false, M=true) \\
+= 0.05 \times 0.001 \times 0.002 \times 0.001 + 0.06 \times 0.001 \times 0.998 \times 0.01 \\ 
+= 0.0000005989 \\ 
+P(A=true| B=true, M=true) = \frac{P1}{P1+P2} \\
+= \frac{0.000658014}{0.000658014 + 0.0000005989} = 0.999090...
+\end{gather*}
+
+\subsection{Approximate Inference}
+\subsubsection{} % a
+~~~~~~~Get a Random Sample \\
+
+
+~~~~~~~~\begin{tabular}{@{}ccccc@{}}
+\toprule
+$Burglary$ & $Earthquake$ & $Alarm$ & $JohnCalls$ & $MarryCalls$\\ \midrule
+$False$ & $False$ & $True$ & $True$ & $True$ \\
+$False$ & $False$ & $False$ & $False$ & $False$ \\
+$True$ & $False$ & $True$ & $True$ & $True$ \\
+$False$ & $False$ & $False$ & $True$ & $False$ \\
+\bottomrule
+\end{tabular}
+
+
+\subsubsection{} % b
+~~~~~~ Alarm 이 울렸을 때 Burglary 의 수를 센다. \\ 
+~~~~~~\begin{gather*}
+\frac{1}{3}
+\end{gather*}
+
+
+% \addcontentsline{toc}{subsection}{~~~Appendix}
+% \subsection*{Appendix}
+\end{document}
