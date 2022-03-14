@@ -40,16 +40,6 @@ src에 2가지 형태의 example 이 있습니다.
 
 ------
 
-![1](./img-for-readme/1.png)
-
-------
-
-![2](./img-for-readme/2.png)
-
-------
-
-
-
 ### TODO
 
 - 용지 사이즈에 따라 디자인 수동으로 좌표 변경해야함 (일반 article 예시가 assignment example 이고, a4용지 예시가 homework example 이다. 다른 용지 필요하시면 이슈 주세요.)
